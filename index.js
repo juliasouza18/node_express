@@ -6,6 +6,9 @@ const app = express()
 
 const caminhoBase= path.join(__dirname, "templates") 
 
+app.get('/cadastrar', (requisiçao, resposta)=> {
+    resposta.sendFile(`${caminhoBase}/cadastro.html`)
+})
 // htps://localhost:3000/usuarios/20
 app.get('/usuarios/:id', (requisicao, resposta) => {
     const id= requisicao.params.id
