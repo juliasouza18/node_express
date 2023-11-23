@@ -6,6 +6,21 @@ const app = express()
 
 const caminhoBase= path.join(__dirname, "templates") 
 
+app.use(express.urlencoded({
+    extended: true
+}))
+
+app.use(express.json())
+
+
+  
+app.post('/cadastrar/salvar', (requisicao, resposta) => {
+    const nome= requisicao.body.nomeCompleto
+    const email= requisicao.body.emailTodo
+    const senha= requisicao.body.senhaTop
+
+    console.log(`O email do usuário é: ${email}`)
+})
 app.get('/cadastrar', (requisiçao, resposta)=> {
     resposta.sendFile(`${caminhoBase}/cadastro.html`)
 })
